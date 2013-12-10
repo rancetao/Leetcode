@@ -14,7 +14,6 @@ public class ConvertSortedArraytoBinarySearchTree {
 
     public TreeNode sortedArrayToBST(int[] num) {
 
-        // Note: The Solution object is instantiated only once and is reused by each test case.
         if (num == null || num.length == 0)
             return null;
         int begin = 0;
@@ -34,11 +33,4 @@ public class ConvertSortedArraytoBinarySearchTree {
 
         return node;
     }
-
-    public static void main(String[] args) {
-
-        // TODO Auto-generated method stub
-
-    }
-
 }
