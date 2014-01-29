@@ -14,38 +14,32 @@ public class LinkedListCycleII {
 
     public ListNode detectCycle(ListNode head) {
 
-        if (head == null)
+        if (head == null || head.next == null)
             return null;
 
-        if (head.next == null)
-            return null;
+        ListNode slow = head;
+        ListNode fast = head;
 
-        if (head.next.next == null) {
-            if (head.val == head.next.val)
-                return head;
-            else
-                return null;
-        }
+        while (slow != null && fast != null) {
+            slow = slow.next;
+            fast = fast.next;
+            if (fast != null)
+                fast = fast.next;
 
-        ListNode node1 = head;
-        ListNode node2 = head.next.next;
-
-        while (node1 != null && node2 != null) {
-
-            if (node1.val != node2.val) {
-                node1 = node1.next;
-                if (node2.next != null) {
-                    node2 = node2.next.next;
-                }
-                else {
-                    return null;
-                }
-            }
-            else {
+            if (slow == fast)
                 break;
-            }
         }
 
-        return node2;
+        if (slow == null || fast == null)
+            return null;
+
+        // must have a cycle
+        slow = head;
+        while (slow != fast) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        return slow;
     }
 }
