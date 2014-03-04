@@ -29,27 +29,28 @@ public class GenerateParenttheses {
         }
 
         arrList = generateParenthesis(n - 1);
+        ArrayList<String> returnList = new ArrayList<String>();
+
         int tempSize = arrList.size();
-        ArrayList<String> tempArrList = new ArrayList<String>();
         for (int j = 0; j < tempSize; j++) {
             String tempStr = arrList.get(j);
             StringBuffer sb = new StringBuffer(tempStr);
             int size = sb.length();
-            tempArrList = new ArrayList<String>();
             for (int i = 0; i < size; ++i) {
                 String str = sb.insert(i, "()").toString();
-                if (!arrList.contains(str)) {
-                    tempArrList.add(str);
+                sb = new StringBuffer(tempStr);
+                if (!returnList.contains(str)) {
+                    returnList.add(str);
                 }
             }
         }
-        arrList.addAll(tempArrList);
-        return arrList;
+
+        return returnList;
     }
 
     public static void main(String[] args) {
         GenerateParenttheses gp = new GenerateParenttheses();
-        ArrayList<String> arrList = gp.generateParenthesis(3);
+        ArrayList<String> arrList = gp.generateParenthesis(2);
         for (String s : arrList) {
             System.out.println(s);
         }
