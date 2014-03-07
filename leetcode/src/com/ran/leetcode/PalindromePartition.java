@@ -17,41 +17,36 @@ import java.util.ArrayList;
 public class PalindromePartition {
 
     public ArrayList<ArrayList<String>> partition(String s) {
+        ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
 
-        ArrayList<ArrayList<String>> resultArrLists = new ArrayList<ArrayList<String>>();
+        if (s == null || s.length() == 0) {
 
-        if (s == null)
-            return null;
-        int length = s.length();
-        if (length == 0) {
-            return resultArrLists;
-        }
-        if (length == 1) {
-            ArrayList<String> arrLista = new ArrayList<String>();
-            arrLista.add(s);
-            resultArrLists.add(arrLista);
-            return resultArrLists;
+            return result;
         }
 
-        String lastChar = s.substring(length - 1);
-        ArrayList<ArrayList<String>> arrLists = partition(s.substring(0, length - 1));
-        int arrListsSize = arrLists.size();
+        int start = 0;
+        ArrayList<String> partition = new ArrayList<String>();
 
-        for (int i = 0; i < arrListsSize; ++i) {
-            ArrayList<String> arrayList = arrLists.get(i);
+        buildResult(s, start, partition, result);
 
-            int arrayListSize = arrayList.size();
-            for (int j = 0; j < arrayListSize; ++j) {
+        return result;
+    }
 
-                String str = arrayList.get(j).concat(lastChar);
-                if (isPalindrome(str)) {
-                    arrayList.set(j, str);
-                    arrLists.set(i, arrayList);
-                }
+    private void buildResult(String s, int start, ArrayList<String> partition, ArrayList<ArrayList<String>> result) {
+        if (start == s.length()) {
+            ArrayList<String> temp = new ArrayList<String>(partition);
+            result.add(temp);
+            return;
+        }
+
+        for (int i = start + 1; i <= s.length(); i++) {
+            String tempStr = s.substring(start, i);
+            if (isPalindrome(tempStr)) {
+                partition.add(tempStr);
+                buildResult(s, i, partition, result);
+                partition.remove(partition.size() - 1);
             }
-
         }
-        return arrLists;
     }
 
     public Boolean isPalindrome(String s) {
@@ -78,6 +73,12 @@ public class PalindromePartition {
     public static void main(String args[]) {
         PalindromePartition pp = new PalindromePartition();
         ArrayList<ArrayList<String>> resultArrLists = pp.partition("aab");
-        System.out.println("done");
+        for (ArrayList<String> arrList : resultArrLists) {
+            for (String temStr : arrList) {
+                System.out.print(temStr + ", ");
+            }
+            System.out.print("\r\n");
+        }
+
     }
 }
