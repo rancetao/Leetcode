@@ -79,6 +79,5 @@ public class PalindromePartition {
             }
             System.out.print("\r\n");
         }
-
     }
 }
