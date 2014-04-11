@@ -27,12 +27,28 @@ public class CombinationSum {
 
         int start = 0;
         ArrayList<Integer> currentPossibleSolution = new ArrayList<Integer>();
-        return null;
-        // calculateResult()
 
+        calculateResult(candidates, currentPossibleSolution, start, result, target);
+
+        return result;
     }
 
-    // **
+    private void calculateResult(int[] candidates, ArrayList<Integer> currentPossibleSolution, int start, ArrayList<ArrayList<Integer>> result, int target) {
+        if (target == 0) {
+            result.add(new ArrayList<Integer>(currentPossibleSolution));
+            return;
+        }
+
+        for (int i = 0; i < candidates.length; i++) {
+            if (target - candidates[i] < 0) {
+                return;
+            }
+            currentPossibleSolution.add(candidates[i]);
+
+            calculateResult(candidates, currentPossibleSolution, i, result, target - candidates[i]);
+            currentPossibleSolution.remove(currentPossibleSolution.size() - 1);
+        }
+    }
 
     public ArrayList<ArrayList<Integer>> combinationSum(int[] candidates, int target) {
         ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
