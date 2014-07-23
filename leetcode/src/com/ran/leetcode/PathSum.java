@@ -33,6 +33,7 @@ public class PathSum {
             return true;
 
         int value = sum - root.val;
-        return hasPathSum(root.left, value) || hasPathSum(root.right, value);
-    }
+        return hasPathSum(root.left, value) || hasPathSum(root.right, value);        
+        
+    }   
 }
