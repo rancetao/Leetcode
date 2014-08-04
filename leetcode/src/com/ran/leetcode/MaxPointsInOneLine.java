@@ -62,7 +62,7 @@ public class MaxPointsInOneLine {
 
             for (int temp : map.values()) {
 
-                // duplicate may exist
+                // duplicate points may exist
                 if (temp + dup > max) {
                     max = temp + dup;
                 }
