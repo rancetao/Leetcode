@@ -16,51 +16,67 @@ import java.util.List;
  */
 public class SpiralMatrix {
     public List<Integer> spiralOrder(int[][] matrix) {
-        return spiralOrder(matrix, new ArrayList<Integer>());
-    }
+        ArrayList<Integer> result = new ArrayList<Integer>();
 
-    public List<Integer> spiralOrder(int[][] matrix, List<Integer> list) {
-
-        int i = 0;
-        int j = 0;
+        if (matrix == null || matrix.length == 0)
+            return result;
 
         int m = matrix.length;
         int n = matrix[0].length;
 
-        if (m == 0 && n == 0) {
-            list = new ArrayList<Integer>();
-            list.add(matrix[0][0]);
-            return list;
-        }
+        int x = 0;
+        int y = 0;
+
         while (m > 0 && n > 0) {
 
-            // left to right
-            while (i < n) {
-                list.add(matrix[m][i]);
-                i++;
+            // if one row/column left, no circle can be formed
+            if (m == 1) {
+                for (int i = 0; i < n; i++) {
+                    result.add(matrix[x][y++]);
+                }
+                break;
+            } else if (n == 1) {
+                for (int i = 0; i < m; i++) {
+                    result.add(matrix[x++][y]);
+                }
+                break;
             }
-            // top to bottom
-            while (j < m) {
-                list.add(matrix[j][n]);
-                j++;
+
+            // below, process a circle
+
+            // top - move right
+            for (int i = 0; i < n - 1; i++) {
+                result.add(matrix[x][y++]);
             }
-            // right to left
-            while (i > 0) {
-                list.add(matrix[m][i]);
-                i--;
+
+            // right - move down
+            for (int i = 0; i < m - 1; i++) {
+                result.add(matrix[x++][y]);
             }
-            // bottom to top
-            while (j > 0) {
-                list.add(matrix[j][n]);
-                j--;
+
+            // bottom - move left
+            for (int i = 0; i < n - 1; i++) {
+                result.add(matrix[x][y--]);
             }
-            i++;
-            j++;
+
+            // left - move up
+            for (int i = 0; i < m - 1; i++) {
+                result.add(matrix[x--][y]);
+            }
+
+            x++;
+            y++;
             m = m - 2;
             n = n - 2;
-
         }
 
-        return list;
+        return result;
+    }
+
+
+    public static void main(String[] args) {
+        SpiralMatrix sm = new SpiralMatrix();
+        int[][] matrix = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        List<Integer> list = sm.spiralOrder(matrix);
     }
 }

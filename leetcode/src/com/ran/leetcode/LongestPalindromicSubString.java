@@ -26,7 +26,7 @@ public class LongestPalindromicSubString {
         for (int i = 0; i < length; i++) {
             table[i][i] = 1;
         }
-        printTable(table);
+        // printTable(table);
 
         // e.g. bcba
         // two consecutive same letters are palindrome
@@ -36,7 +36,7 @@ public class LongestPalindromicSubString {
                 longestStr = s.substring(i, i + 2);
             }
         }
-        printTable(table);
+        // printTable(table);
         // condition for calculate whole table
         for (int l = 3; l <= length; l++) {
             for (int i = 0; i <= length - l; i++) {
@@ -48,7 +48,7 @@ public class LongestPalindromicSubString {
                 } else {
                     table[i][j] = 0;
                 }
-                printTable(table);
+                // printTable(table);
             }
         }
 
