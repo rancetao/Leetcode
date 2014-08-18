@@ -17,9 +17,6 @@ import java.util.Set;
  */
 public class FindAnagrams {
 
-    public FindAnagrams() {}
-
-
 
     public List<String> FindAnagrams(String[] strs) {
 
