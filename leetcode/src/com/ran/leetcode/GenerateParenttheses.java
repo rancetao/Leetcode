@@ -17,7 +17,7 @@ import java.util.List;
 
 public class GenerateParenttheses {
 
-    public ArrayList<String> generateParenthesis(int n) {
+    public List<String> generateParenthesis(int n) {
 
         List<String> arrList = new ArrayList<String>();
         if (n == 0) {
@@ -82,7 +82,7 @@ public class GenerateParenttheses {
 
     public static void main(String[] args) {
         GenerateParenttheses gp = new GenerateParenttheses();
-        ArrayList<String> arrList = gp.generateParenthesis(2);
+        List<String> arrList = gp.generateParenthesis(2);
         for (String s : arrList) {
             System.out.println(s);
         }

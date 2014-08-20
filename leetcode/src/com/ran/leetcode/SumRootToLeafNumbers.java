@@ -31,7 +31,6 @@ public class SumRootToLeafNumbers {
         return sumNumbers(root, 0);
     }
 
-
     public int sumNumbers(TreeNode node, int sum) {
 
         if (node == null)
