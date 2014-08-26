@@ -3,6 +3,7 @@ package com.ran.leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * Given n pairs of parentheses, write a function to generate all combinations of well-formed
  * parentheses.
@@ -19,23 +20,23 @@ public class GenerateParenttheses {
 
     public List<String> generateParenthesis(int n) {
 
-        List<String> arrList = new ArrayList<String>();
+        List<String> result = new ArrayList<String>();
         if (n == 0) {
-            arrList.add("");
-            return arrList;
+            result.add("");
+            return result;
         }
 
         if (n == 1) {
-            arrList.add("()");
-            return arrList;
+            result.add("()");
+            return result;
         }
 
-        arrList = generateParenthesis(n - 1);
+        result = generateParenthesis(n - 1);
         ArrayList<String> returnList = new ArrayList<String>();
 
-        int tempSize = arrList.size();
+        int tempSize = result.size();
         for (int j = 0; j < tempSize; j++) {
-            String tempStr = arrList.get(j);
+            String tempStr = result.get(j);
             StringBuffer sb = new StringBuffer(tempStr);
             int size = sb.length();
             for (int i = 0; i < size; ++i) {
