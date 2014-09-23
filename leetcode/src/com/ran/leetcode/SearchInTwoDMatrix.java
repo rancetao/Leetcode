@@ -26,14 +26,14 @@ public class SearchInTwoDMatrix {
 		int min = 0;
 		int max = matrix[0].length * matrix.length - 1;
 
-		int x, y, current;
+		int y, x, current;
 		while (min <= max) {
 			current = (min + max) / 2;
-			y = current / xLength;
-			x = current % xLength;
-			if (matrix[y][x] == target) {
+			x = current / xLength;
+			y = current % xLength;
+			if (matrix[x][y] == target) {
 				return true;
-			} else if (target < matrix[y][x]) {
+			} else if (target < matrix[x][y]) {
 				max = current - 1;
 			} else {
 				min = current + 1;
