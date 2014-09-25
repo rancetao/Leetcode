@@ -5,23 +5,33 @@ import java.util.List;
 
 /**
  * Follow up for "Remove Duplicates": What if duplicates are allowed at most twice?
- * 
+ * <p>
  * For example, Given sorted array A = [1,1,1,2,2,3],
- * 
+ * <p>
  * Your function should return length = 5, and A is now [1,1,2,2,3].
- * 
+ *
  * @author taor
  * @date Jan 27, 2014
  */
 public class RemoveDuplicatedElementsFromSortedArrayII {
 
+    public static void main(String[] args) {
+
+        RemoveDuplicatedElementsFromSortedArrayII rd =
+            new RemoveDuplicatedElementsFromSortedArrayII();
+        int[] A = {1, 1, 1, 2};
+        rd.removeDuplicates(A);
+    }
+
     // return the length of result array
     public int removeDuplicates(int[] A) {
 
-        if (A.length == 0)
+        if (A.length == 0) {
             return 0;
-        if (A.length == 1)
+        }
+        if (A.length == 1) {
             return 1;
+        }
 
         List<Integer> listA = new ArrayList<Integer>();
 
@@ -34,10 +44,9 @@ public class RemoveDuplicatedElementsFromSortedArrayII {
             int secondIndex = beginIndex + 1;
             while (secondIndex + 1 < listA.size()) {
                 if (listA.get(beginIndex).equals(listA.get(secondIndex))
-                        && listA.get(beginIndex).equals(listA.get(secondIndex + 1))) {
+                    && listA.get(beginIndex).equals(listA.get(secondIndex + 1))) {
                     listA.remove(secondIndex);
-                }
-                else {
+                } else {
                     break;
                 }
             }
@@ -45,12 +54,5 @@ public class RemoveDuplicatedElementsFromSortedArrayII {
         }
 
         return listA.size();
-    }
-
-    public static void main(String[] args) {
-
-        RemoveDuplicatedElementsFromSortedArrayII rd = new RemoveDuplicatedElementsFromSortedArrayII();
-        int[] A = {1, 1, 1, 2};
-        rd.removeDuplicates(A);
     }
 }

@@ -6,20 +6,29 @@ import java.util.List;
 /**
  * Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral
  * order.
- * 
+ * <p>
  * For example, Given the following matrix:
- * 
+ *
+ * @author RanceTao
  * @formatter off [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ] ] You should return [1,2,3,6,9,8,7,4,5].
  * @formatter on
- * @author RanceTao
- * 
  */
 public class SpiralMatrix {
+
+    public static void main(String[] args) {
+
+        SpiralMatrix sm = new SpiralMatrix();
+        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        List<Integer> list = sm.spiralOrder(matrix);
+    }
+
     public List<Integer> spiralOrder(int[][] matrix) {
+
         ArrayList<Integer> result = new ArrayList<Integer>();
 
-        if (matrix == null || matrix.length == 0)
+        if (matrix == null || matrix.length == 0) {
             return result;
+        }
 
         int row = matrix.length;
         int col = matrix[0].length;
@@ -71,12 +80,5 @@ public class SpiralMatrix {
         }
 
         return result;
-    }
-
-
-    public static void main(String[] args) {
-        SpiralMatrix sm = new SpiralMatrix();
-        int[][] matrix = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-        List<Integer> list = sm.spiralOrder(matrix);
     }
 }

@@ -1,12 +1,12 @@
 package com.ran.leetcode;
 
-import java.util.Arrays;
-
 import com.ran.leetcode.domain.TreeNode;
+
+import java.util.Arrays;
 
 /**
  * Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
- * 
+ *
  * @author taor
  * @since Oct 17, 2013
  */
@@ -14,8 +14,9 @@ public class ConvertSortedArraytoBinarySearchTree {
 
     public TreeNode sortedArrayToBST(int[] num) {
 
-        if (num == null || num.length == 0)
+        if (num == null || num.length == 0) {
             return null;
+        }
         int begin = 0;
         int end = num.length;
         int mid = begin + (end - begin) / 2;

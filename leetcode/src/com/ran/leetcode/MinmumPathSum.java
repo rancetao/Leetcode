@@ -3,13 +3,13 @@ package com.ran.leetcode;
 /**
  * Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right
  * which minimizes the sum of all numbers along its path.
- * 
+ *
  * @author RanceTao
- * 
  */
 public class MinmumPathSum {
 
     public int minPathSum(int[][] grid) {
+
         int row = grid.length;
         int col = grid[0].length;
 

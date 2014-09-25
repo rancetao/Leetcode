@@ -2,18 +2,20 @@ package com.ran.leetcode;
 
 /**
  * Given a string S, find the longest palindromic substring in S.
- * 
+ *
  * @author RanceTao
- * 
  */
 public class LongestPalindromicSubString {
 
     public static String longestPalindrome(String s) {
-        if (s == null)
-            return null;
 
-        if (s.length() <= 1)
+        if (s == null) {
+            return null;
+        }
+
+        if (s.length() <= 1) {
             return s;
+        }
 
         int maxLen = 0;
         String longestStr = null;
@@ -43,8 +45,9 @@ public class LongestPalindromicSubString {
                 int j = i + l - 1;
                 if (s.charAt(i) == s.charAt(j)) {
                     table[i][j] = table[i + 1][j - 1];
-                    if (table[i][j] == 1 && l > maxLen)
+                    if (table[i][j] == 1 && l > maxLen) {
                         longestStr = s.substring(i, j + 1);
+                    }
                 } else {
                     table[i][j] = 0;
                 }
@@ -56,6 +59,7 @@ public class LongestPalindromicSubString {
     }
 
     public static void printTable(int[][] x) {
+
         for (int[] y : x) {
             for (int z : y) {
                 System.out.print(z + " ");
@@ -66,6 +70,7 @@ public class LongestPalindromicSubString {
     }
 
     public static void main(String[] args) {
+
         System.out.println(LongestPalindromicSubString.longestPalindrome("aabbaacc"));
     }
 }

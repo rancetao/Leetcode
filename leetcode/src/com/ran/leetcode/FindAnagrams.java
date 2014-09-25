@@ -1,22 +1,23 @@
 package com.ran.leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Given an array of strings, return all groups of strings that are anagrams.
- * 
+ * <p>
  * Note: All inputs will be in lower-case.
- * 
+ *
  * @author RanceTao
- * 
  */
 public class FindAnagrams {
 
+
+    public static void main(String args[]) {
+
+        FindAnagrams fa = new FindAnagrams();
+        String[] strs = {"", ""};
+        fa.FindAnagrams(strs);
+    }
 
     public List<String> FindAnagrams(String[] strs) {
 
@@ -48,12 +49,6 @@ public class FindAnagrams {
             }
         }
         return list;
-    }
-
-    public static void main(String args[]) {
-        FindAnagrams fa = new FindAnagrams();
-        String[] strs = {"", ""};
-        fa.FindAnagrams(strs);
     }
 
 }

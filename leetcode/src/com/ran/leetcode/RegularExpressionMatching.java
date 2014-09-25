@@ -2,36 +2,37 @@ package com.ran.leetcode;
 
 /**
  * Implement regular expression matching with support for '.' and '*'.
- * 
+ * <p>
  * '.' Matches any single character. '*' Matches zero or more of the preceding element.
- * 
+ * <p>
  * The matching should cover the entire input string (not partial).
- * 
+ * <p>
  * The function prototype should be: bool isMatch(const char *s, const char *p)
- * 
+ * <p>
  * Some examples: isMatch("aa","a") → false isMatch("aa","aa") → true isMatch("aaa","aa") → false
  * isMatch("aa", "a*") → true isMatch("aa", ".*") → true isMatch("ab", ".*") → true isMatch("aab",
  * "c*a*b") → true
- * 
+ *
  * @author RanceTao
- * 
  */
 public class RegularExpressionMatching {
+
     /**
      * Solution: Overall, there are 2 different cases: 1) the second char of pattern is "*" , and 2)
      * the second char of pattern is not "*".
-     * 
+     * <p>
      * For the 1st case, if the first char of pattern is not ".", the first char of pattern and
      * string should be the same. Then continue to match the left part.
-     * 
+     * <p>
      * For the 2nd case, if the first char of pattern is "." or first char of pattern == the first i
      * char of string, continue to match the left.
-     * 
+     *
      * @param s
      * @param p
      * @return
      */
     public boolean isMatch(String s, String p) {
+
         if (p.length() == 0) {
             return s.length() == 0;
         }
@@ -49,7 +50,7 @@ public class RegularExpressionMatching {
                 return false;
             } else {
                 return (s.charAt(0) == p.charAt(0) || p.charAt(0) == '.')
-                        && isMatch(s.substring(1), p.substring(1));
+                    && isMatch(s.substring(1), p.substring(1));
             }
         }
         // next char is *

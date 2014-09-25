@@ -4,19 +4,32 @@ import java.util.ArrayList;
 
 /**
  * Given a string s, partition s such that every substring of the partition is a palindrome.
- * 
+ * <p>
  * Return all possible palindrome partitioning of s.
- * 
+ * <p>
  * For example, given s = "aab", Return
- * 
+ * <p>
  * [ ["aa","b"], ["a","a","b"] ]
- * 
+ *
  * @author taor
  * @since Oct 22, 2013
  */
 public class PalindromePartition {
 
+    public static void main(String args[]) {
+
+        PalindromePartition pp = new PalindromePartition();
+        ArrayList<ArrayList<String>> resultArrLists = pp.partition("aab");
+        for (ArrayList<String> arrList : resultArrLists) {
+            for (String temStr : arrList) {
+                System.out.print(temStr + ", ");
+            }
+            System.out.print("\r\n");
+        }
+    }
+
     public ArrayList<ArrayList<String>> partition(String s) {
+
         ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
 
         if (s == null || s.length() == 0) {
@@ -32,7 +45,9 @@ public class PalindromePartition {
         return result;
     }
 
-    private void buildResult(String s, int start, ArrayList<String> partition, ArrayList<ArrayList<String>> result) {
+    private void buildResult(String s, int start, ArrayList<String> partition,
+        ArrayList<ArrayList<String>> result) {
+
         if (start == s.length()) {
             ArrayList<String> temp = new ArrayList<String>(partition);
             result.add(temp);
@@ -68,16 +83,5 @@ public class PalindromePartition {
             }
         }
         return true;
-    }
-
-    public static void main(String args[]) {
-        PalindromePartition pp = new PalindromePartition();
-        ArrayList<ArrayList<String>> resultArrLists = pp.partition("aab");
-        for (ArrayList<String> arrList : resultArrLists) {
-            for (String temStr : arrList) {
-                System.out.print(temStr + ", ");
-            }
-            System.out.print("\r\n");
-        }
     }
 }

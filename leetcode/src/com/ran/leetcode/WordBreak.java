@@ -6,21 +6,33 @@ import java.util.Set;
 /**
  * Given a string s and a dictionary of words dict, determine if s can be segmented into a
  * space-separated sequence of one or more dictionary words.
- * 
+ * <p>
  * For example, given s = "leetcode", dict = ["leet", "code"].
- * 
+ * <p>
  * Return true because "leetcode" can be segmented as "leet code".
- * 
+ *
  * @author RanceTao
- * 
  */
 
 public class WordBreak {
 
+    public static void main(String[] args) {
+
+        WordBreak wb = new WordBreak();
+        String s = "abcd";
+        Set<String> dict = new HashSet<>();
+        dict.add("a");
+        dict.add("abc");
+        dict.add("b");
+        dict.add("cd");
+        System.out.println(wb.wordBreak(s, dict));
+    }
+
     public boolean wordBreak(String s, Set<String> dict) {
 
-        if (dict.contains(s) == true)
+        if (dict.contains(s) == true) {
             return true;
+        }
 
         int length = s.length();
         for (int i = 1; i < length; i++) {
@@ -42,15 +54,18 @@ public class WordBreak {
 
     // DP
     public boolean wordBreak2(String s, Set<String> dict) {
-        if (s == null || s.length() == 0 || dict == null)
+
+        if (s == null || s.length() == 0 || dict == null) {
             return true;
+        }
 
         int length = s.length();
 
         // dp[i] is true when the substring from i to the end can be partitioned
         boolean[] dp = new boolean[length + 1];
-        for (boolean b : dp)
+        for (boolean b : dp) {
             b = false;
+        }
 
         // empty string can be partitioned for sure
         dp[length] = true;
@@ -67,16 +82,5 @@ public class WordBreak {
         }
 
         return dp[0];
-    }
-
-    public static void main(String[] args) {
-        WordBreak wb = new WordBreak();
-        String s = "abcd";
-        Set<String> dict = new HashSet<>();
-        dict.add("a");
-        dict.add("abc");
-        dict.add("b");
-        dict.add("cd");
-        System.out.println(wb.wordBreak(s, dict));
     }
 }

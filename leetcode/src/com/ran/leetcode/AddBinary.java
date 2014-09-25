@@ -1,11 +1,10 @@
 package com.ran.leetcode;
 
 /**
- * 
  * Given two binary strings, return their sum (also a binary string).
- * 
+ * <p>
  * For example, a = "11" b = "1" Return "100".
- * 
+ *
  * @author taor
  * @since Oct 17, 2013
  */
@@ -21,15 +20,14 @@ public class AddBinary {
         while (i >= 0 || j >= 0) {
             int bitSum = 0;
             if (i >= 0 && j >= 0) {
-                bitSum = Integer.parseInt(a.substring(i, i + 1)) + Integer.parseInt(b.substring(j, j + 1)) + carry;
+                bitSum = Integer.parseInt(a.substring(i, i + 1)) + Integer
+                    .parseInt(b.substring(j, j + 1)) + carry;
                 i--;
                 j--;
-            }
-            else if (i >= 0) {
+            } else if (i >= 0) {
                 bitSum = Integer.parseInt(a.substring(i, i + 1)) + carry;
                 i--;
-            }
-            else {
+            } else {
                 bitSum = Integer.parseInt(b.substring(j, j + 1)) + carry;
                 j--;
             }

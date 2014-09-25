@@ -10,13 +10,14 @@ import java.util.ArrayList;
  [1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], and [3,2,1].
  */
 
+
 /**
  * @author RanceTao
- * 
  */
 public class Permutation {
-	public ArrayList<ArrayList<Integer>> permute(int[] num) {
-					
-		return null;
-	}	
+
+    public ArrayList<ArrayList<Integer>> permute(int[] num) {
+
+        return null;
+    }
 }

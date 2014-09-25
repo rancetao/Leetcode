@@ -2,12 +2,12 @@ package com.ran.leetcode;
 
 /**
  * Given an integer, convert it to a roman numeral.
- * 
+ * <p>
  * Input is guaranteed to be within the range from 1 to 3999.
- * 
- * 
+ * <p>
+ * <p>
  * Symbol Value I 1 V 5 X 10 L 50 C 100 D 500 M 1,000
- * 
+ *
  * @author taor
  * @since Oct 18, 2013
  */
@@ -23,7 +23,7 @@ public class IntegerToRoman {
         while (num > 0) {
             int times = num / nums[i];
             num -= nums[i] * times;
-            while(times > 0){
+            while (times > 0) {
                 result.append(symbols[i]);
                 --times;
             }
@@ -31,10 +31,10 @@ public class IntegerToRoman {
         }
         return result.toString();
     }
-    
+
     // common solution
     public String commonIntToRoman(int num) {
 
         return null;
-    }    
+    }
 }

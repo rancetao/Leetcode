@@ -2,11 +2,11 @@ package com.ran.leetcode;
 
 /**
  * Given a m x n matrix, if an element is 0, set its entire row and column to 0. Do it in place.
- * 
+ *
  * @author RanceTao
- * 
  */
 public class SetMatrixZeros {
+
     public void setZeroes(int[][] matrix) {
 
 
@@ -49,13 +49,15 @@ public class SetMatrixZeros {
 
         // set first column and row
         if (firstColumnZero) {
-            for (int i = 0; i < matrix.length; i++)
+            for (int i = 0; i < matrix.length; i++) {
                 matrix[i][0] = 0;
+            }
         }
 
         if (firstRowZero) {
-            for (int i = 0; i < matrix[0].length; i++)
+            for (int i = 0; i < matrix[0].length; i++) {
                 matrix[0][i] = 0;
+            }
         }
     }
 }

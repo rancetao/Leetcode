@@ -4,17 +4,21 @@ public class Pow {
 
     public double pow(double x, int n) {
 
-        if (x == 0 && n == 0)
+        if (x == 0 && n == 0) {
             return Integer.MIN_VALUE;
+        }
 
-        if (x == 0)
+        if (x == 0) {
             return 0;
+        }
 
-        if (n == 0)
+        if (n == 0) {
             return 1;
+        }
 
-        if (n == 1)
+        if (n == 1) {
             return x;
+        }
 
         boolean aMinus = x < 0 ? true : false;
         boolean bMinus = n < 0 ? true : false;
@@ -26,15 +30,16 @@ public class Pow {
         // check if n is odd
         if ((n & 1) != 0) {
             tempAnswer = pow(aAbs, bAbs - 1) * aAbs;
-        }
-        else {
+        } else {
             tempAnswer = pow(aAbs * aAbs, bAbs / 2);
         }
 
-        if (bMinus)
+        if (bMinus) {
             tempAnswer = 1.0 / tempAnswer;
-        if (aMinus && (n & 1) != 0)
+        }
+        if (aMinus && (n & 1) != 0) {
             tempAnswer *= -1;
+        }
 
         return tempAnswer;
     }

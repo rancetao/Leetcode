@@ -6,15 +6,23 @@ import java.util.Arrays;
  * Given an array S of n integers, find three integers in S such that the sum is closest to a given
  * number, target. Return the sum of the three integers. You may assume that each input would have
  * exactly one solution.
- * 
+ * <p>
  * For example, given array S = {-1 2 1 -4}, and target = 1.
- * 
+ * <p>
  * The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
- * 
+ *
  * @author RanceTao
- * 
  */
 public class ThreeSumClosest {
+
+    public static void main(String[] args) {
+
+        int target = 1;
+        int[] num = {0, 2, 1, -3};
+        ThreeSumClosest tsc = new ThreeSumClosest();
+        System.out.print(tsc.threeSumClosest(num, target));
+    }
+
     public int threeSumClosest(int[] num, int target) {
 
         Arrays.sort(num);
@@ -44,13 +52,5 @@ public class ThreeSumClosest {
         }
 
         return closestSum;
-    }
-
-    public static void main(String[] args) {
-
-        int target = 1;
-        int[] num = {0, 2, 1, -3};
-        ThreeSumClosest tsc = new ThreeSumClosest();
-        System.out.print(tsc.threeSumClosest(num, target));
     }
 }
