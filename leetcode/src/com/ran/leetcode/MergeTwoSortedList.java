@@ -20,6 +20,7 @@ public class MergeTwoSortedList {
             return l1;
         }
 
+        // use dummy node
         ListNode dummy = new ListNode(0);
         ListNode pre = dummy;
 

@@ -2,9 +2,6 @@ package com.ran.leetcode;
 
 import com.ran.leetcode.domain.TreeLinkNode;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 /**
  * Created by rantao on 9/24/14.
  */
