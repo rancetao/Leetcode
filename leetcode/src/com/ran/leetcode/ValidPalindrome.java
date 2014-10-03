@@ -67,4 +67,19 @@ public class ValidPalindrome {
             return false;
         }
     }
+
+    public void sort(String[] arr){
+        int len = arr.length;
+        int start = 0;
+
+        mergeSort(arr, start, len);
+    }
+
+    public void mergeSort(String[] arr, int start, int end){
+        int mid = start + (end-start)/2;
+
+        mergeSort(arr, start, mid);
+        mergeSort(arr, mid+1, end);
+        mergeSort(arr, start, end);
+    }
 }

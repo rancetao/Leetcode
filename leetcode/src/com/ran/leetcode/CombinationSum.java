@@ -43,23 +43,6 @@ public class CombinationSum {
         return result;
     }
 
-    public ArrayList<ArrayList<Integer>> combinationSum(int[] candidates, int target) {
-
-        ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
-
-        if (candidates == null || candidates.length == 0 || target < 0) {
-            return result;
-        }
-
-        Arrays.sort(candidates);
-
-        int start = 0;
-        ArrayList<Integer> current = new ArrayList<Integer>();
-        buildResult(candidates, start, current, target, result);
-
-        return result;
-    }
-
     private void calculateResult(int[] candidates, ArrayList<Integer> currentPossibleSolution,
         int start, ArrayList<ArrayList<Integer>> result, int target) {
 
@@ -76,6 +59,23 @@ public class CombinationSum {
             calculateResult(candidates, currentPossibleSolution, i, result, target - candidates[i]);
             currentPossibleSolution.remove(currentPossibleSolution.size() - 1);
         }
+    }
+
+    public ArrayList<ArrayList<Integer>> combinationSum(int[] candidates, int target) {
+
+        ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+
+        if (candidates == null || candidates.length == 0 || target < 0) {
+            return result;
+        }
+
+        Arrays.sort(candidates);
+
+        int start = 0;
+        ArrayList<Integer> current = new ArrayList<Integer>();
+        buildResult(candidates, start, current, target, result);
+
+        return result;
     }
 
     private void buildResult(int[] candidates, int start, ArrayList<Integer> current, int target,

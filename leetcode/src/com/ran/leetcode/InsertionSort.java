@@ -28,7 +28,6 @@ public class InsertionSort {
             if (run.val > run.next.val) {
                 // find node which is not in order
                 ListNode smallNode = run.next;
-
                 ListNode pre = preHead;
 
                 // find position for smallNode
@@ -45,9 +44,7 @@ public class InsertionSort {
             } else {
                 // node is in order
                 run = run.next;
-
             }
-
         }
 
         return preHead.next;
