@@ -1,5 +1,8 @@
 package com.ran.leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Given two binary strings, return their sum (also a binary string).
  * <p>
@@ -37,8 +40,12 @@ public class AddBinary {
         }
         if (carry == 1) {
             sumStr = carry + sumStr;
+            Map<Integer, Integer> map = new HashMap<>();
         }
         return sumStr;
+
     }
+
+
 
 }

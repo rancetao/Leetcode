@@ -27,6 +27,46 @@ public class CombinationSum {
         cs.combinationSum(candidates, target);
     }
 
+    public ArrayList<ArrayList<Integer>> combinationSum2(int[] candidates, int target) {
+
+        if (candidates == null || candidates.length == 0) {
+            return null;
+        }
+
+        ArrayList<Integer> res = new ArrayList<>();
+        ArrayList<ArrayList<Integer>> resArr = new ArrayList<>();
+
+        Arrays.sort(candidates);
+
+        calculate(candidates, 0, target, resArr, res);
+
+        return resArr;
+    }
+
+    private void calculate(int[] candidates, int start, int target,
+        ArrayList<ArrayList<Integer>> resArr, ArrayList<Integer> res) {
+
+        if (target - candidates[start] == 0) {
+            res.add(candidates[start]);
+            resArr.add(res);
+            res.clear();
+        }
+
+        if (target - candidates[start] < 0) {
+            return;
+        }
+
+        for (int i = start; i < candidates.length; i++) {
+
+            res.add(candidates[start]);
+            calculate(candidates, start + 1, target - candidates[i], resArr, res);
+            res.remove(res.size() - 1);
+
+        }
+    }
+
+
+
     public ArrayList<ArrayList<Integer>> combinationSumMine(int[] candidates, int target) {
 
         ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();

@@ -46,9 +46,38 @@ public class Strstr {
                     return haystack.substring(i);
                 }
             }
-
         }
 
+        return null;
+    }
+
+
+    public String strStr2(String s1, String s2) {
+
+        int len1 = s1.length();
+        int len2 = s2.length();
+
+        if (len1 < len2) {
+            return null;
+        }
+        if (len1 == len2) {
+            return s1;
+        }
+
+        for (int i = 0; i < len1; i++) {
+            if (len1 - i + 1 < len2) {
+                return null;
+            }
+            int k = i;
+            for (int j = 0; j < len2; j++) {
+                if (s1.charAt(k) == s2.charAt(j)) {
+                    k++;
+                }
+                if (j == len2 - 1) {
+                    return s1.substring(i);
+                }
+            }
+        }
         return null;
     }
 }

@@ -50,4 +50,31 @@ public class InsertionSort {
         return preHead.next;
     }
 
+    public String[] mergeSort(String[] strArr) {
+
+        if (strArr == null || strArr.length == 1) {
+            return strArr;
+        }
+
+        int start = 0;
+        int end = strArr.length - 1;
+
+        return mergeSort(strArr, start, end);
+
+    }
+
+    private String[] mergeSort(String[] strArr, int start, int end) {
+
+        int mid = start + (end - start) / 2;
+
+        mergeSort(strArr, start, mid);
+        mergeSort(strArr, mid + 1, end);
+        merge(strArr, start, mid, end);
+        return strArr;
+    }
+
+    private void merge(String[] strArr, int start, int mid, int end) {
+
+    }
+
 }

@@ -40,7 +40,7 @@ public class Pow {
         if (aMinus && (n & 1) != 0) {
             tempAnswer *= -1;
         }
-
+        
         return tempAnswer;
     }
 }
