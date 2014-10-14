@@ -8,37 +8,26 @@ public class RemoveDuplicatesFromSortedArrayII {
 
     public int removeDuplicates(int[] A) {
 
-        if (A == null || A.length == 0) {
-            return 0;
+        if (A.length < 3) {
+            return A.length;
         }
-
-        int pre = A[0];
-        boolean flag = false;
-        int count = 0;
-
-        // index for updating
-        int o = 1;
-
+        int index = 1;
+        int count = 1;
         for (int i = 1; i < A.length; i++) {
-            int curr = A[i];
 
-            if (curr == pre) {
-                if (!flag) {
-                    flag = true;
-                    A[o++] = curr;
-
-                    continue;
-                } else {
-                    count++;
-                }
+            if (A[i] == A[i - 1]) {
+                count++;
             } else {
-                pre = curr;
-                A[o++] = curr;
-                flag = false;
+                count = 1;
+            }
+
+            if (count <= 2) {
+                A[index] = A[i];
+                index++;
             }
         }
+        return index;
 
-        return A.length - count;
     }
 
     public static void main(String[] args) {
