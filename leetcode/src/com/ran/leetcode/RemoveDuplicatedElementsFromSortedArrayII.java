@@ -1,7 +1,5 @@
 package com.ran.leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Follow up for "Remove Duplicates": What if duplicates are allowed at most twice?
@@ -15,44 +13,35 @@ import java.util.List;
  */
 public class RemoveDuplicatedElementsFromSortedArrayII {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        RemoveDuplicatedElementsFromSortedArrayII rd =
-            new RemoveDuplicatedElementsFromSortedArrayII();
-        int[] A = {1, 1, 1, 2};
-        rd.removeDuplicates(A);
+    RemoveDuplicatedElementsFromSortedArrayII rd = new RemoveDuplicatedElementsFromSortedArrayII();
+    int[] A = {1, 1, 1, 2};
+    rd.removeDuplicates(A);
+  }
+
+  // return the length of result array
+  public int removeDuplicates(int[] A) {
+
+    int i = 1, j = 0;
+    int cnt = 0;
+
+    if (A.length < 3) {
+      return A.length;
     }
 
-    // return the length of result array
-    public int removeDuplicates(int[] A) {
-
-        if (A.length == 0) {
-            return 0;
+    for (; i < A.length; i++) {
+      if (A[i] == A[j]) { // 重复的情况
+        if (cnt == 0) { // 当且仅当重复一次（共出现两次）的情况下才复制
+          A[++j] = A[i];
         }
-        if (A.length == 1) {
-            return 1;
-        }
-
-        List<Integer> listA = new ArrayList<Integer>();
-
-        for (int i = 0; i < A.length; ++i) {
-            listA.add(A[i]);
-        }
-
-        int beginIndex = 0;
-        while (beginIndex < listA.size()) {
-            int secondIndex = beginIndex + 1;
-            while (secondIndex + 1 < listA.size()) {
-                if (listA.get(beginIndex).equals(listA.get(secondIndex))
-                    && listA.get(beginIndex).equals(listA.get(secondIndex + 1))) {
-                    listA.remove(secondIndex);
-                } else {
-                    break;
-                }
-            }
-            beginIndex++;
-        }
-
-        return listA.size();
+        cnt++;
+      } else { // 不重复的情况，更新j的位置，然后直接复制过去
+        A[++j] = A[i];
+        cnt = 0; // 重置counter
+      }
     }
+
+    return j + 1;
+  }
 }

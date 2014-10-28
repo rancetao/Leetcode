@@ -23,6 +23,7 @@ public class LongestSubStringWithoutRepeatingCharacters {
                 map.put(arr[i], i);
             } else {
                 pre = pre > map.size() ? pre : map.size();
+                // assign i to the previous occurence index
                 i = map.get(arr[i]);
                 map.clear();
             }
